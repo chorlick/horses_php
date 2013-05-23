@@ -143,8 +143,6 @@ class Horse{
 		$this->d_0 = $this->d;
 		$this->d += $this->speed * $tick;
 	}
-	
-	
 }
 
 class Race{
@@ -178,9 +176,6 @@ class Race{
 
 	public function print_standing() {
 		$i = 0;
-		$j = 0;
-		$high = 0;
-		$marker = 0;
 		echo "=============Tick # " .$this->tick. "=============\n";
 		echo "|   Name  |   Distance  |   Speed  |\n";
 		echo "====================================\n";
@@ -221,14 +216,32 @@ class Race{
 	}
 
 	public function dump_horses() {
-	
+		$i = 0;
+		echo "================================Horses========================\n";
+		echo "|   Name  |   Top Speed  |  Stamina  |  Acceleration  | Luck |\n";
+		echo "==============================================================\n";
+		for($i =0; $i < 5; $i++) {
+			printf("|");
+			printf("%-9s", $this->horses[$i]->name);
+			printf("|");
+			printf("%-14d", $this->horses[$i]->topspeed);
+			printf("|");
+			printf("%-11d", $this->horses[$i]->stamina);
+			printf("|");
+			printf("%-16d", $this->horses[$i]->acceleration);
+			printf("|");
+			printf("%-6d", $this->horses[$i]->luck);
+			printf("|\n");
+		}
+		echo "==============================================================\n";
+
 	}
 }
 
 $race = new Race(500);
 
 $race->start();
-
+$race->dump_horses();
 
 
 ?>
